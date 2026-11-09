@@ -316,7 +316,8 @@
   padding: 32px;
   min-height: 260px;
   transition: border-color .35s ease,
-              transform .15s ease-out;
+              transform .15s ease-out,
+              background .25s ease;
   position: relative;
   overflow: hidden;
 
@@ -324,10 +325,17 @@
   will-change: transform;
 }
 
-   .project-card:hover {
+    .project-card:hover {
   border-color: var(--red);
+  background:
+    radial-gradient(
+      280px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(255, 48, 48, 0.14),
+      transparent 80%
+    ),
+    var(--panel);
 }
-    .project-number {
+      .project-number {
       color: var(--red);
       font: 12px 'DM Mono', monospace;
     }
@@ -804,12 +812,15 @@ typeEffect();
 const projectCards = document.querySelectorAll(".project-card");
 
 projectCards.forEach((card) => {
-  card.addEventListener("mousemove", (e) => {
-    const rect = card.getBoundingClientRect();
+ card.addEventListener("mousemove", (e) => {
+  const rect = card.getBoundingClientRect();
 
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
 
+  card.style.setProperty("--mouse-x", `${x}px`);
+  card.style.setProperty("--mouse-y", `${y}px`);
+   
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
