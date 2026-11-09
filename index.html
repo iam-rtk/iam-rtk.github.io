@@ -174,11 +174,30 @@
     }
 
     .hero h1 .outline {
-      color: transparent;
-      -webkit-text-stroke: 1px #777;
-    }
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    #ff3030,
+    #ffffff
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-text-stroke: 0;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: heroGradient 5s linear infinite;
+}
 
-    .hero h1 .accent { color: var(--red); }
+.hero h1 .accent {
+  color: var(--red);
+}
+
+@keyframes heroGradient {
+  to {
+    background-position: 200% center;
+  }
+}
 
     .hero-description {
       max-width: 570px;
