@@ -434,11 +434,24 @@
     opacity: 0;
   }
 }
-
+/* SCROLL PROGRESS INDICATOR */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: #ff3030;
+  z-index: 10001;
+  box-shadow: 0 0 10px rgba(255, 48, 48, 0.6);
+}
   </style>
 </head>
 
 <body>
+
+  <!-- SCROLL PROGRESS BAR -->
+<div class="scroll-progress"></div>
 
   <!-- Custom cursor -->
   <div class="cursor-dot"></div>
@@ -681,6 +694,7 @@ document.querySelectorAll(".project-card").forEach((card) => {
   });
 
 });
+   
     // CLICK RIPPLE ANIMATION
 
 document.addEventListener("click", (e) => {
@@ -698,6 +712,20 @@ document.addEventListener("click", (e) => {
     ripple.remove();
   }, 600);
 
+});
+
+    // SCROLL PROGRESS INDICATOR
+
+window.addEventListener("scroll", () => {
+  const scrollProgress = document.querySelector(".scroll-progress");
+
+  const scrollableHeight =
+    document.documentElement.scrollHeight - window.innerHeight;
+
+  const progress =
+    (window.scrollY / scrollableHeight) * 100;
+
+  scrollProgress.style.width = progress + "%";
 });
 
   </script>
