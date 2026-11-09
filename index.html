@@ -229,6 +229,29 @@
       font: 10px 'DM Mono', monospace;
       letter-spacing: 2px;
     }
+    
+    /* TYPING ANIMATION */
+
+.typing-line {
+  margin-top: 20px;
+  min-height: 32px;
+  color: var(--red);
+  font-family: 'DM Mono', monospace;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.typing-cursor {
+  display: inline-block;
+  color: var(--red);
+  animation: blinkCursor 0.7s infinite;
+}
+
+@keyframes blinkCursor {
+  50% {
+    opacity: 0;
+  }
+}
 
     /* GENERAL SECTIONS */
     section.content-section {
@@ -477,6 +500,10 @@
       RITIK<br>
       <span class="outline">KUMAR</span><span class="accent">.</span>
     </h1>
+    
+    <p class="typing-line">
+  <span id="typed-text"></span><span class="typing-cursor">|</span>
+</p>
 
     <p class="hero-description">
       Aspiring Machine Learning Engineer building intelligent
@@ -727,6 +754,47 @@ window.addEventListener("scroll", () => {
 
   scrollProgress.style.width = progress + "%";
 });
+
+    // TYPING TEXT ANIMATION
+
+const typedText = document.getElementById("typed-text");
+
+const phrases = [
+  "Machine Learning Enthusiast",
+  "Deep Learning Explorer",
+  "Computer Vision Developer"
+];
+
+let phraseIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+function typeEffect() {
+  const currentPhrase = phrases[phraseIndex];
+
+  if (deleting) {
+    charIndex--;
+  } else {
+    charIndex++;
+  }
+
+  typedText.textContent = currentPhrase.substring(0, charIndex);
+
+  let speed = deleting ? 50 : 100;
+
+  if (!deleting && charIndex === currentPhrase.length) {
+    speed = 1500;
+    deleting = true;
+  } else if (deleting && charIndex === 0) {
+    deleting = false;
+    phraseIndex = (phraseIndex + 1) % phrases.length;
+    speed = 400;
+  }
+
+  setTimeout(typeEffect, speed);
+}
+
+typeEffect();
 
   </script>
 
