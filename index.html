@@ -436,6 +436,34 @@
       padding-bottom: 4px;
     }
 
+    /* STAGGERED PROJECT CARD ENTRANCE */
+.reveal.visible .project-card {
+  animation: projectCardEnter 0.8s ease both;
+}
+
+.reveal.visible .project-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.reveal.visible .project-card:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.reveal.visible .project-card:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+@keyframes projectCardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
     /* CONTACT */
     .contact-box {
       padding: 50px;
