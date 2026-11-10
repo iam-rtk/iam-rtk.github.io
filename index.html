@@ -335,6 +335,8 @@
       color: #ddd;
       font-size: 14px;
       transition: .3s;
+      position: relative;
+      overflow: hidden;
     }
 
     .skill:hover {
@@ -342,6 +344,29 @@
       color: var(--red);
       transform: translateY(-4px);
     }
+
+    /* SKILL TAG SHINE EFFECT */
+.skill::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 48, 48, 0.2),
+    transparent
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
+.skill:hover::before {
+  left: 140%;
+  transition: left .6s ease;
+}
 
     /* PROJECTS */
     .projects {
