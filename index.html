@@ -587,6 +587,40 @@
   z-index: 10001;
   box-shadow: 0 0 10px rgba(255, 48, 48, 0.6);
 }
+
+    /* BACK TO TOP BUTTON */
+.back-to-top {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 45px;
+  height: 45px;
+  border: 1px solid var(--red);
+  background: var(--red);
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 1000;
+  transition: opacity .3s ease,
+              background .3s ease,
+              transform .3s ease,
+              visibility .3s ease;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  background: white;
+  color: var(--red);
+  transform: translateY(-5px);
+}
     /* ANIMATED HERO BACKGROUND GLOW */
 
 .hero {
@@ -627,6 +661,11 @@
 
   <!-- SCROLL PROGRESS BAR -->
 <div class="scroll-progress"></div>
+
+  <!-- BACK TO TOP BUTTON -->
+<button class="back-to-top" aria-label="Back to top">
+  ↑
+</button>
 
   <!-- Custom cursor -->
   <div class="cursor-dot"></div>
@@ -974,6 +1013,24 @@ projectCards.forEach((card) => {
   card.addEventListener("mouseleave", () => {
     card.style.transform =
       "perspective(1000px) rotateX(0deg) rotateY(0deg)";
+  });
+});
+
+    // BACK TO TOP BUTTON
+const backToTop = document.querySelector(".back-to-top");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 400) {
+    backToTop.classList.add("show");
+  } else {
+    backToTop.classList.remove("show");
+  }
+});
+
+backToTop.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
   });
 });
 
