@@ -211,24 +211,32 @@
       position: relative;
     }
 
-    /* HERO HEADING WITH PROFILE PHOTO */
-.hero-heading {
+  
+/* HERO TWO-COLUMN LAYOUT */
+.hero-layout {
   display: flex;
   align-items: center;
-  gap: 55px;
+  justify-content: space-between;
+  gap: 40px;
   width: 100%;
 }
 
-.hero-photo {
-  width: clamp(180px, 23vw, 300px);
-  aspect-ratio: 1;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 50%;
-  border: 2px solid var(--red);
-  box-shadow: 0 0 35px rgba(255, 48, 48, 0.2);
-  flex-shrink: 0;
+.hero-content {
+  flex: 1;
+  min-width: 0;
 }
+
+.hero-photo {
+  width: clamp(280px, 35vw, 430px);
+  height: clamp(400px, 70vh, 620px);
+  object-fit: cover;
+  object-position: center top;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
 
     .hero h1 .outline {
   background: linear-gradient(
@@ -738,24 +746,21 @@ button:focus-visible {
 
   <!-- Hero -->
   <header class="hero" id="home">
+    
+<div class="hero-layout">
+
+  <div class="hero-content">
+
     <p class="eyebrow">PORTFOLIO / 2026</p>
 
-   <div class="hero-heading">
-  <h1>
-    RITIK<br>
-    <span class="outline">KUMAR</span><span class="accent">.</span>
-  </h1>
+    <h1>
+      RITIK<br>
+      <span class="outline">KUMAR</span><span class="accent">.</span>
+    </h1>
 
-  <img
-    src="profile.jpeg"
-    alt="Portrait of Ritik Kumar"
-    class="hero-photo"
-  >
-</div>
-    
     <p class="typing-line">
-  <span id="typed-text"></span><span class="typing-cursor" aria-hidden="true">|</span>
-</p>
+      <span id="typed-text"></span><span class="typing-cursor" aria-hidden="true">|</span>
+    </p>
 
     <p class="hero-description">
       Aspiring Machine Learning Engineer building intelligent
@@ -768,7 +773,18 @@ button:focus-visible {
       <a href="#contact" class="btn">LET'S CONNECT</a>
     </div>
 
-    <p class="scroll-note">SCROLL TO EXPLORE ↓</p>
+  </div>
+
+  <img
+    src="profile.jpeg"
+    alt="Portrait of Ritik Kumar"
+    class="hero-photo"
+  >
+
+</div>
+
+<p class="scroll-note">SCROLL TO EXPLORE ↓</p>
+
   </header>
 
   <main>
