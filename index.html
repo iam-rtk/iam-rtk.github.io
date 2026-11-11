@@ -377,11 +377,11 @@
   );
   transform: skewX(-20deg);
   pointer-events: none;
+  transition: left .6s ease;
 }
 
 .skill:hover::before {
   left: 140%;
-  transition: left .6s ease;
 }
 
     /* PROJECTS */
@@ -400,7 +400,8 @@
   min-height: 260px;
   transition: border-color .35s ease,
               transform .15s ease-out,
-              background .25s ease;
+              background .25s ease,
+              box-shadow .3s ease;
   position: relative;
 
   transform-style: preserve-3d;
