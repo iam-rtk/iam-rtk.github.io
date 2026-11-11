@@ -211,6 +211,25 @@
       position: relative;
     }
 
+    /* HERO HEADING WITH PROFILE PHOTO */
+.hero-heading {
+  display: flex;
+  align-items: center;
+  gap: 55px;
+  width: 100%;
+}
+
+.hero-photo {
+  width: clamp(180px, 23vw, 300px);
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  border: 2px solid var(--red);
+  box-shadow: 0 0 35px rgba(255, 48, 48, 0.2);
+  flex-shrink: 0;
+}
+
     .hero h1 .outline {
   background: linear-gradient(
     90deg,
