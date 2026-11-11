@@ -155,6 +155,16 @@
   transform: scaleX(1);
   transform-origin: left;
 }
+    
+    /* ACTIVE NAVIGATION LINK */
+.nav-links a.active {
+  color: var(--red);
+}
+
+.nav-links a.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
 
     /* HERO */
     .hero {
@@ -866,6 +876,39 @@
     document.querySelectorAll(".reveal").forEach((section) => {
       observer.observe(section);
     });
+
+    // ACTIVE NAVIGATION ON SCROLL
+
+const sections = document.querySelectorAll(
+  "section.content-section[id]"
+);
+
+const navLinks = document.querySelectorAll(".nav-links a");
+
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+      });
+
+      const activeLink = document.querySelector(
+        `.nav-links a[href="#${entry.target.id}"]`
+      );
+
+      if (activeLink) {
+        activeLink.classList.add("active");
+      }
+    }
+  });
+}, {
+  rootMargin: "-25% 0px -60% 0px"
+});
+
+sections.forEach((section) => {
+  sectionObserver.observe(section);
+});
     
 // MAGNETIC BUTTON EFFECT
 
