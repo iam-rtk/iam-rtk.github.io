@@ -226,10 +226,16 @@
   min-width: 0;
 }
 
+    .hero-title-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 
 .hero-photo {
-  width: clamp(260px, 30vw, 380px);
-  height: clamp(260px, 30vw, 380px);
+  width: clamp(180px, 22vw, 280px);
+  height: clamp(180px, 22vw, 280px);
   object-fit: cover;
   object-position: center top;
   flex-shrink: 0;
@@ -597,9 +603,13 @@
   min-width: 0;
 }
 
+.hero-title-row {
+  gap: 8px;
+}
+
 .hero-photo {
-  width: 110px;
-  height: 110px;
+  width: clamp(105px, 34vw, 135px);
+  height: clamp(105px, 34vw, 135px);
   flex-shrink: 0;
   border-radius: 50%;
 }
@@ -771,10 +781,19 @@ button:focus-visible {
 
     <p class="eyebrow">PORTFOLIO / 2026</p>
 
-    <h1>
-      RITIK<br>
-      <span class="outline">KUMAR</span><span class="accent">.</span>
-    </h1>
+   <div class="hero-title-row">
+     
+  <h1>
+    RITIK<br>
+    <span class="outline">KUMAR</span><span class="accent">.</span>
+  </h1>
+
+  <img
+    src="profile.jpeg"
+    alt="Portrait of Ritik Kumar"
+    class="hero-photo"
+  >
+</div>
 
     <p class="typing-line">
       <span id="typed-text"></span><span class="typing-cursor" aria-hidden="true">|</span>
